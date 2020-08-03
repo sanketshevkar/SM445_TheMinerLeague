@@ -16,6 +16,10 @@ from uppaid sources.
 
 Corporate action Miner Bot based on AI-ML.
 
+1. Web Crawler
+
+   - Crawls through Financial Express webiste and Money Control website to search for the desired company name and corporate actions.
+
 2. Segment Classifier
 
    - The documents are first classified into
@@ -39,6 +43,13 @@ Corporate action Miner Bot based on AI-ML.
 
    - Specific Details are extracted from the document for each class.
    - Algorithm - Trained Named Entity Recognition model in spacy for extracting relevant details.
+
+5. Cloud Database
+
+   - Final Corporate Action Details are uploaded to a MongoDB Cloud Instance.
+
+6. Client Side
+   - NodeJS REST-API connects to the MongoDB Cloud Instance and fetches and serves the data to the Client application.
 
 <img src="website.jpeg" width="400" height="250"> <img src="app.jpeg" width="200" height="250">
 
@@ -74,7 +85,10 @@ conda activate findex_env
 
 As a sudo/admin user run:
 python -m spacy download en
+
 ```
+
+# Performance
 
 # Future Scope
 
