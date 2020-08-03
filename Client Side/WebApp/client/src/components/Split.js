@@ -4,6 +4,7 @@ import axios from 'axios';
 import SearchBarDiv from './SearchBarDiv';
 import { CSVLink} from "react-csv";
 import '../App.css'
+import Spinner from './Spinner'
 
 export class Split extends Component {
 
@@ -29,6 +30,11 @@ export class Split extends Component {
       }
       
     render() {
+      if(this.state.cas[0].Security_Code===''){
+        return(
+          <Spinner />
+        )
+      }else{
         return(
           <Fragment>
             <Button variant="danger" className="but"><CSVLink className="but" data={this.state.cas}>Download CSV</CSVLink></Button>
@@ -40,6 +46,7 @@ export class Split extends Component {
       <th className="com">Company Name</th>
       <th className="com">New Face Value</th>
       <th className="obj">Old Face Value</th>
+      <th className="obj">Record Date</th>
       </tr>
       </thead>
       <tbody>
@@ -49,6 +56,7 @@ export class Split extends Component {
                 <td className="com">{res.Company_Name}</td>
                 <td className="com">{res.Old_Face_Value}</td>
                 <td className="obj">{res.New_Face_Value}</td>
+                <td className="obj">{res.Record_Date}</td>
 
                 </tr>
         ))}
@@ -60,7 +68,7 @@ export class Split extends Component {
       </Fragment>
                 ) 
           
-          
+      }
 }
 }
 
