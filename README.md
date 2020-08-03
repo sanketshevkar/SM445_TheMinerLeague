@@ -32,7 +32,7 @@ Corporate action Miner Bot based on AI-ML.
    - Algorithm - XGboost
    - Accuracy - 86.7%
 
-   <img src="segment.jpeg" width="400" height="200">
+   <img src="segment.jpeg" width="400" height="300">
 
 2. Equity Classifier
 
@@ -43,7 +43,7 @@ Corporate action Miner Bot based on AI-ML.
    - Algorithm - Adaptive 1-D Convolutional Neural Network
    - Accuracy - 91.2%
 
-   <img src="equity.jpeg" width="400" height="200">
+   <img src="equity.jpeg" width="400" height="300">
 
 3. NLP Models
 
