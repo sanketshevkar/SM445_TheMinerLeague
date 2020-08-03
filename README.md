@@ -106,7 +106,7 @@ python -m spacy download en
 
 # Our Website
 
-    http://35.154.254.195:3000/
+    [FinDex](http://35.154.254.195:3000/)
 
 # Future Scope
 
@@ -121,8 +121,8 @@ a robust and automated solution.
 
 # Acknowledgements
 
-    https://spacy.io/usage/training
-    https://www.bseindia.com/corporates/ann.html
-    https://www1.hkexnews.hk/search/titlesearch.xhtml?lang=en
-    https://pymupdf.readthedocs.io/en/latest/
-    https://selenium-python.readthedocs.io/
+    [Spacy]https://spacy.io/usage/training
+    [Bse]https://www.bseindia.com/corporates/ann.html
+    [Hkex]https://www1.hkexnews.hk/search/titlesearch.xhtml?lang=en
+    [PyMuPdf]https://pymupdf.readthedocs.io/en/latest/
+    [Selenium]https://selenium-python.readthedocs.io/
