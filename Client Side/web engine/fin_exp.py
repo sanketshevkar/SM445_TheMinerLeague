@@ -40,21 +40,24 @@ def fin_exp(company_name : str):
         
         
         if(label=='dividend'):
-            return_dict = {'Dividend Date': '',
-            'Record Date': '', 
-            'Dividend(%)': '',
-            'Interim/Final/Dividend': ''}
+            return_dict = {'Dividend_Date': '',
+            'Record_Date': '', 
+            'Dividend': '',
+            'Type': '',
+            'Company_Name':''}
             
         if(label=='book_closures'):
             return_dict = { 
-            'From Date': '', 
-            'To Date': '',
-            'Purpose': ''}
+            'From_Date': '', 
+            'To_Date': '',
+            'Purpose': '',
+            'Company_Name':''}
             
         if(label=='stock_splits'):
-            return_dict = {'Record Date': '', 
-            'FV Changed From': '',
-            'FV Changed To': ''}
+            return_dict = {'Record_Date': '', 
+            'FV_Changed_From': '',
+            'FV_Changed_To': '',
+            'Company_Name':''}
             
         
 
@@ -73,17 +76,17 @@ def fin_exp(company_name : str):
                 python_button = driver.find_elements_by_xpath('//*[@id="modality_next"]')[0]
                 python_button.click()
 
-            df_cols = {'dividend': ['Company Name','Dividend Date', 'Record Date', 'Dividend(%)','Interim/Final/Dividend'],
-                   'book_closures': ['Company Name', 'From Date', 'To Date', 'Purpose'], 
-                   'stock_splits' : ['Company Name', 'Record Date', 'FV Changed From', 'FV Changed To']}
+            df_cols = {'dividend': ['Company_Name','Dividend_Date', 'Record_Date', 'Dividend','Type'],
+                   'book_closures': ['Company_Name', 'From_Date', 'To_Date', 'Purpose'], 
+                   'stock_splits' : ['Company_Name', 'Record_Date', 'FV_Changed_From', 'FV_Changed_To']}
 
-            date_cols = {'Dividend Date', 'Record Date', 'From Date', 'To Date'}
+            date_cols = {'Dividend_Date', 'Record_Date', 'From_Date', 'To_Date'}
 
             df = pd.DataFrame(data)
             df.columns = df_cols[label]
 
 
-            result = df[df['Company Name'].str.lower().str.find(company_name) == 0]
+            result = df[df['Company_Name'].str.lower().str.find(company_name) == 0]
 
 
 
@@ -106,6 +109,7 @@ def fin_exp(company_name : str):
 
         except IndexError:
             print('IndexError')
+            final_list.append(return_dict)
             pass
 
 

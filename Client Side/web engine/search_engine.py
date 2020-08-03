@@ -20,7 +20,7 @@ def index():
         data=request.form.to_dict(flat=False)
         company_name=data['Company_Name'][0]
         result_fin_exp=fin_exp(company_name.lower())
-        result_mon_con=mon_con(company_name.lower())
+        #result_mon_con=mon_con(company_name.lower())
         print(result_fin_exp)
         print(result_mon_con)
         result['fin_exp']=result_fin_exp

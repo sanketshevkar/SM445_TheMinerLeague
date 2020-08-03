@@ -44,34 +44,37 @@ def mon_con(company_name : str):
         tab_data = [[cell.text for cell in row.find_all(["th","td"])]
                                 for row in table.find_all("tr")]
 
-        df_cols = {'dividend': ['Company Name','Interim/Final/Dividend', 'Dividend(%)','Announcement Date', 'Dividend Date', 'Record Date'],
-                    'book_closures': ['Company Name', 'From Date', 'To Date', 'Purpose'], 
-                    'stock_splits' : ['Company Name', 'FV Changed From', 'FV Changed To', 'Record Date']}
+        df_cols = {'dividend': ['Company_Name','Type', 'Dividend','Announcement_Date', 'Dividend_Date', 'Record_Date'],
+                    'book_closures': ['Company_Name', 'From_Date', 'To_Date', 'Purpose'], 
+                    'stock_splits' : ['Company_Name', 'FV_Changed_From', 'FV_Changed_To', 'Record_Date']}
 
-        date_cols = {'Dividend Date', 'Record Date', 'From Date', 'To Date', 'Announcement Date'}
+        date_cols = {'Dividend_Date', 'Record_Date', 'From_Date', 'To_Date', 'Announcement_Date'}
 
         df = pd.DataFrame(tab_data)
         df.drop(labels = df_params[label][1], inplace = True)
         df.columns = df_cols[label]
 
-        result = df[df['Company Name'].str.lower().str.find(company_name) == 0]
+        result = df[df['Company_Name'].str.lower().str.find(company_name) == 0]
 
         if(label=='dividend'):
-            return_dict = {'Dividend Date': '',
-            'Record Date': '', 
-            'Dividend(%)': '',
-            'Interim/Final/Dividend': ''}
+            return_dict = {'Dividend_Date': '',
+            'Record_Date': '', 
+            'Dividend': '',
+            'Type': '',
+            'Company_Name':''}
             
         if(label=='book_closures'):
             return_dict = { 
-            'From Date': '', 
-            'To Date': '',
-            'Purpose': ''}
+            'From_Date': '', 
+            'To_Date': '',
+            'Purpose': '',
+            'Company_Name':''}
             
         if(label=='stock_splits'):
-            return_dict = {'Record Date': '', 
-            'FV Changed From': '',
-            'FV Changed To': ''}
+            return_dict = {'Record_Date': '', 
+            'FV_Changed_From': '',
+            'FV_Changed_To': '',
+            'Company_Name':''}
 
         if len(result):
             for key in result.columns:
