@@ -14,6 +14,7 @@ import BCDate from './components/BCDate';
 import AddBCDate from './components/AddBCDate';
 import Upload from './components/Upload';
 import Landing from './components/Landing';
+import Search from './components/Search';
 
 
 class App extends Component {
@@ -123,6 +124,14 @@ class App extends Component {
           <Navi />
           <div className='table'>
             <Upload />
+          </div>
+        </React.Fragment>
+      )}/>
+  
+  <Route exact path='/search' render={props=>(
+        <React.Fragment>
+          <div className='table'>
+            <Search />
           </div>
         </React.Fragment>
       )}/>
