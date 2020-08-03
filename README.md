@@ -20,6 +20,8 @@ Corporate action Miner Bot based on AI-ML.
 
     - User can search for a company and the crawler crawls through Financial Express and Money Control websites to search for the desired company name and most recent corporate actions.
 
+<img src="crawler.jpeg" width="400" height="300">
+
 ## Manual Upload
 
 1. Segment Classifier
@@ -57,6 +59,8 @@ Corporate action Miner Bot based on AI-ML.
 5. Client Side
 
    - NodeJS REST-API connects to the MongoDB Cloud Instance and fetches and serves the data to the Client application.
+
+   <img src="manual.jpeg" width="400" height="300">
 
 ## Architecture
 
@@ -106,7 +110,7 @@ python -m spacy download en
 
 # Our Website
 
-[FinDex Website](http://35.154.254.195:3000/)
+    [FinDex](http://35.154.254.195:3000/)
 
 # Future Scope
 
