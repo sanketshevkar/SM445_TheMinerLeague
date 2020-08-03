@@ -40,11 +40,7 @@ Corporate action Miner Bot based on AI-ML.
    - Specific Details are extracted from the document for each class.
    - Algorithm - Trained Named Entity Recognition model in spacy for extracting relevant details.
 
-5. Backend
-
-6)
-
-![Website](website.jpeg) ![App](app.jpeg)
+![Website](website.jpeg){:height="36px" width="36px"} ![App](app.jpeg){:height="36px" width="36px"}
 
 # Built With
 
@@ -93,8 +89,8 @@ a robust and automated solution.
 
 # Acknowledgements
 
-    - https://spacy.io/usage/training
-    - https://www.bseindia.com/corporates/ann.html
-    - https://www1.hkexnews.hk/search/titlesearch.xhtml?lang=en
-    - https://pymupdf.readthedocs.io/en/latest/
-    - https://selenium-python.readthedocs.io/
+    https://spacy.io/usage/training
+    https://www.bseindia.com/corporates/ann.html
+    https://www1.hkexnews.hk/search/titlesearch.xhtml?lang=en
+    https://pymupdf.readthedocs.io/en/latest/
+    https://selenium-python.readthedocs.io/
