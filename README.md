@@ -97,6 +97,9 @@ python -m spacy download en
 
 # Performance
 
+- Segment Classifier Accuracy - 86.7%
+- Equity Classifer Accuracy - 91.2%
+
 # Future Scope
 
 We aim to develop, not only a small solution
