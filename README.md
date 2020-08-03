@@ -56,7 +56,7 @@ Corporate action Miner Bot based on AI-ML.
 
 ## Architecture
 
-<img src="architecture.jpeg" width="400" height="400">
+<img src="architecture.jpeg" width="600" height="600">
 
 <img src="website.jpeg" width="400" height="250"> <img src="app.jpeg" width="200" height="250">
 
