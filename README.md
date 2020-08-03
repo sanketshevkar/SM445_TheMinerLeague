@@ -16,13 +16,13 @@ from uppaid sources.
 
 Corporate action Miner Bot based on AI-ML.
 
-## Web Crawler
+### Web Crawler
 
 User can search for a company and the crawler crawls through Financial Express and Money Control websites to search for the desired company name and most recent corporate actions.
 
 <img src="crawler.jpeg" width="400" height="300">
 
-## Manual Upload
+### Manual Upload
 
 1. Segment Classifier
 
