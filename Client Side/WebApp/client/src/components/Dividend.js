@@ -4,6 +4,8 @@ import axios from 'axios';
 import SearchBarDiv from './SearchBarDiv';
 import { CSVLink} from "react-csv";
 import '../App.css'
+import Spinner from './Spinner'
+
 
 export class Dividend extends Component {
 
@@ -16,6 +18,7 @@ export class Dividend extends Component {
        componentDidMount(){
         axios.get('http://127.0.0.1:5000/table/dividend') 
         .then(res => this.setState({cas: res.data}))
+
       }
 
       search = (Security_Code, Company_Name) =>{
@@ -29,6 +32,12 @@ export class Dividend extends Component {
       }
       
     render() {
+      if(this.state.cas[0].Security_Code===''){
+        return(
+          <Spinner />
+        )
+      }
+      else{
         return(
           <Fragment>
             <Button variant="danger" className="but"><CSVLink className="but" data={this.state.cas}>Download CSV</CSVLink></Button>
@@ -41,6 +50,7 @@ export class Dividend extends Component {
       <th className="com">Record Date</th>
       <th className="com">Payment Date</th>
       <th className="obj">Dividend Type</th>
+      <th className="obj">Dividend Value</th>
       </tr>
       </thead>
       <tbody>
@@ -51,7 +61,7 @@ export class Dividend extends Component {
                 <td className="com">{res.Record_Date}</td>
                 <td className="com">{res.Payment_Date}</td>
                 <td className="obj">{res.Type}</td>
-
+                <td className="obj">{res.Dividend}</td>
                 </tr>
         ))}
       
@@ -62,7 +72,7 @@ export class Dividend extends Component {
       </Fragment>
                 ) 
           
-          
+      }
 }
 }
 
