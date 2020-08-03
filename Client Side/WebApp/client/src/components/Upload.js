@@ -1,23 +1,51 @@
 import React, { Component, Fragment } from 'react';
 import '../App.css';
-import axios from 'axios';
+import {Table,Button} from 'react-bootstrap'
 
 
 
 class Upload extends Component {
 
-    constructor(props) {
-        super(props);
-          this.state = {
+    
+          state = {
             selectedFile: null,
-            Company_Name:'',
-            Security_Code:'',
-            Label:''
+            div_fin:{'Dividend_Date': '',
+            'Record_Date': '', 
+            'Dividend': '',
+            'Type': '',
+            'Company_Name':''},
+      
+            split_fin:{'Record_Date': '', 
+            'FV_Changed_From': '',
+            'FV_Changed_To': '',
+            'Company_Name':''},
+      
+            bcDate_fin: { 
+              'From_Date': '', 
+              'To_Date': '',
+              'Purpose': '',
+              'Company_Name':''},
+      
+            div_mon:{'Dividend_Date': '',
+            'Record_Date': '', 
+            'Dividend': '',
+            'Type': '',
+            'Company_Name':''},
+      
+            split_mon:{'Record_Date': '', 
+            'FV_Changed_From': '',
+            'FV_Changed_To': '',
+            'Company_Name':''},
+      
+            bcDate_mon:{ 
+              'From_Date': '', 
+              'To_Date': '',
+              'Purpose': '',
+              'Company_Name':''}
           }
-       
-      }
-
-    onChangeHandler=event=>{
+          
+          
+          onChangeHandler=event=>{
 
         this.setState({
             selectedFile: event.target.files[0],
@@ -28,24 +56,35 @@ class Upload extends Component {
 
     onChange = (e) => this.setState({ [e.target.name]: e.target.value })
 
+
     onClickHandler = () => {
         const data = new FormData() 
         data.append('file', this.state.selectedFile)
-        data.append('Company_Name', this.state.Company_Name)
-        data.append('Security_Code', this.state.Security_Code)
         data.append('Label', this.state.Label)
-       /* axios.post("http://localhost:5000/upload", data, { // receive two parameter endpoint url ,form data 
-      })
-      .then(res => { // then print response status
-        console.log(res.statusText)
-      })*/
       console.log(this.state)
-      fetch('http://localhost:5000/upload', {
+      fetch('http://localhost:8000/upload', {
         method: 'POST',
         body: data,
-      }).then((response) => {
-          console.log(response)
-      });
+      })
+  .then(response => response.json())
+  .then(data => this.addData(data)
+      
+      
+      );
+    }
+
+
+    addData(data){
+    
+
+      console.log(data)
+      this.setState({div_fin:data.fin_exp[0]})
+      this.setState({div_mon:data.mon_con[0]})
+      this.setState({bcDate_fin:data.fin_exp[1]})
+      this.setState({bcDate_mon:data.mon_con[1]})
+      this.setState({split_fin:data.fin_exp[2]})
+      this.setState({split_mon:data.mon_con[2]})
+        
     }
 
 
@@ -57,17 +96,8 @@ class Upload extends Component {
             <div className="row con">
               <div className="col-md-6">
                   <form method="post" action="#" id="#">
-                  <div class="form-group">
-    <label for="exampleInputEmail1">Security Number</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Security Number"  name='Security_Code'   value={this.state.Security_Code} onChange={this.onChange} />
-  </div>
-                      
-  <div class="form-group">
-    <label for="exampleInputEmail1">Company Name</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Company Name"  name='Company_Name'  value={this.state.Company_Name} onChange={this.onChange} />
-  </div> 
 
-  <div class="form-group">
+                  <div class="form-group">
       <label for="inputState">Security Type</label>
       <select id="inputState" class="form-control" name='Label'  value={this.state.Label} onChange={this.onChange}>
         <option selected>Choose...</option>
@@ -75,8 +105,10 @@ class Upload extends Component {
         <option>Dividend</option>
         <option>Stock Splits</option>
         <option>Book Closures</option>
+        <option>Not Sure</option>
       </select>
-    </div>             
+    </div>   
+                             
                       
                       <div className="form-group files">
                         <label>Upload Your File </label>
@@ -91,6 +123,80 @@ class Upload extends Component {
                
             </div>
         </div>
+
+        <Fragment>
+              <div className='search'>
+                <h1>Dividend</h1>
+            <Table striped bordered hover variant="dark">
+        <thead>
+        <tr>
+      <th className="obj">Company Name</th>
+      <th className="com">Dividend</th>
+      <th className="com">Type</th>
+      <th className="com">Record Date</th>
+      <th className="com">Payment Date</th>
+      </tr>
+      </thead>
+      <tbody>
+          <tr>
+                <td className="obj">{this.state.div_fin.Company_Name}</td>
+                <td className="com">{this.state.div_fin.Dividend}</td>
+                <td className="com">{this.state.div_fin.Type}</td>
+                <td className="obj">{this.state.div_fin.Record_Date}</td>
+                <td className="com">{this.state.div_fin.Dividend_Date}</td>
+
+                </tr>
+      </tbody>
+      </Table>
+      </div>
+
+      <div className='search'>
+      <h1>Book Closure</h1>
+            <Table striped bordered hover variant="dark">
+        <thead>
+        <tr>
+      <th className="obj">Company Name</th>
+      <th className="com">From Date</th>
+      <th className="com">To Date</th>
+      <th className="com">Purpose</th>
+      </tr>
+      </thead>
+      <tbody>
+          <tr>
+                <td className="obj">{this.state.bcDate_fin.Company_Name}</td>
+                <td className="com">{this.state.bcDate_fin.From_Date}</td>
+                <td className="com">{this.state.bcDate_fin.To_Date}</td>
+                <td className="obj">{this.state.bcDate_fin.Purpose}</td>
+
+                </tr>
+      </tbody>
+      </Table>
+      </div>
+
+
+      <div className='search'>
+      <h1>Stock Split</h1>
+            <Table striped bordered hover variant="dark">
+        <thead>
+        <tr>
+      <th className="obj">Company Name</th>
+      <th className="com">Record Date</th>
+      <th className="com">Old Face Value</th>
+      <th className="com">New Face Value</th>
+      </tr>
+      </thead>
+      <tbody>
+          <tr>
+                <td className="obj">{this.state.split_fin.Company_Name}</td>
+                <td className="com">{this.state.split_fin.Record_Date}</td>
+                <td className="com">{this.state.split_fin.FV_Changed_From}</td>
+                <td className="obj">{this.state.split_fin.FV_Changed_To}</td>
+
+                </tr>
+      </tbody>
+      </Table>
+      </div>
+      </Fragment>
         </Fragment>
 
            
@@ -100,3 +206,4 @@ class Upload extends Component {
 }
 
 export default Upload;
+
