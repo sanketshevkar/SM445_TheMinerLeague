@@ -16,13 +16,15 @@ from uppaid sources.
 
 Corporate action Miner Bot based on AI-ML.
 
-1. Web Crawler
+## Web Crawler
 
-   - Crawls through Financial Express webiste and Money Control website to search for the desired company name and corporate actions.
+    - User can search for a company and the crawler crawls through Financial Express and Money Control websites to search for the desired company name and most recent corporate actions.
 
-2. Segment Classifier
+## Manual Upload
 
-   - The documents are first classified into
+1. Segment Classifier
+
+   - The uploaded document is first classified into
      three major segments.
      - Equity
      - Mutual Funds
@@ -30,7 +32,7 @@ Corporate action Miner Bot based on AI-ML.
    - Algorithm - XGboost
    - Accuracy - 86.7%
 
-3. Equity Classifier
+2. Equity Classifier
 
    - Documents are further subclassified into:
      - Dividend
@@ -39,17 +41,22 @@ Corporate action Miner Bot based on AI-ML.
    - Algorithm - Adaptive 1-D Convolutional Neural Network
    - Accuracy - 91.2%
 
-4. NLP Models
+3. NLP Models
 
    - Specific Details are extracted from the document for each class.
    - Algorithm - Trained Named Entity Recognition model in spacy for extracting relevant details.
 
-5. Cloud Database
+4. Cloud Database
 
    - Final Corporate Action Details are uploaded to a MongoDB Cloud Instance.
 
-6. Client Side
+5. Client Side
+
    - NodeJS REST-API connects to the MongoDB Cloud Instance and fetches and serves the data to the Client application.
+
+## Architecture
+
+<img src="architecture.jpeg" width="400" height="400">
 
 <img src="website.jpeg" width="400" height="250"> <img src="app.jpeg" width="200" height="250">
 
