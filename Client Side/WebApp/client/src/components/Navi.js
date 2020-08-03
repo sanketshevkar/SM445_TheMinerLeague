@@ -15,6 +15,7 @@ export class Navi extends Component {
           <Nav.Link href="/bcDate">Book Closure Dates</Nav.Link>
           <Nav.Link href="/addData">Add Data</Nav.Link>
           <Nav.Link href="/upload">Upload</Nav.Link>
+      <Nav.Link href="/search">Search</Nav.Link>
         </Nav>
       </Navbar>
     );
