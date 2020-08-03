@@ -106,7 +106,7 @@ python -m spacy download en
 
 # Our Website
 
-[FinDex](http://35.154.254.195:3000/)
+[FinDex Website](http://35.154.254.195:3000/)
 
 # Future Scope
 
