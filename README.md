@@ -34,9 +34,7 @@ User can search for a company and the crawler crawls through Financial Express a
    - Algorithm - XGboost
    - Accuracy - 86.7%
 
-   <img src="segment.jpeg" width="400" height="300">
-
-2. Equity Classifier
+2) Equity Classifier
 
    - Documents are further subclassified into:
      - Dividend
@@ -47,16 +45,16 @@ User can search for a company and the crawler crawls through Financial Express a
 
    <img src="equity.jpeg" width="400" height="300">
 
-3. NLP Models
+3) NLP Models
 
    - Specific Details are extracted from the document for each class.
    - Algorithm - Trained Named Entity Recognition model in spacy for extracting relevant details.
 
-4. Cloud Database
+4) Cloud Database
 
    - Final Corporate Action Details are uploaded to a MongoDB Cloud Instance.
 
-5. Client Side
+5) Client Side
 
    - NodeJS REST-API connects to the MongoDB Cloud Instance and fetches and serves the data to the Client application.
 
@@ -110,7 +108,7 @@ python -m spacy download en
 
 # Our Website
 
-   [FinDex](http://35.154.254.195:3000/)
+    [FinDex](http://35.154.254.195:3000/)
 
 # Future Scope
 
@@ -125,8 +123,8 @@ a robust and automated solution.
 
 # Acknowledgements
 
-   [Spacy]https://spacy.io/usage/training
-   [Bse]https://www.bseindia.com/corporates/ann.html
-   [Hkex]https://www1.hkexnews.hk/search/titlesearch.xhtml?lang=en
-   [PyMuPdf]https://pymupdf.readthedocs.io/en/latest/
-   [Selenium]https://selenium-python.readthedocs.io/
+    [Spacy]https://spacy.io/usage/training
+    [Bse]https://www.bseindia.com/corporates/ann.html
+    [Hkex]https://www1.hkexnews.hk/search/titlesearch.xhtml?lang=en
+    [PyMuPdf]https://pymupdf.readthedocs.io/en/latest/
+    [Selenium]https://selenium-python.readthedocs.io/
