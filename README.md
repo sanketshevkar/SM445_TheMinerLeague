@@ -40,7 +40,7 @@ Corporate action Miner Bot based on AI-ML.
    - Specific Details are extracted from the document for each class.
    - Algorithm - Trained Named Entity Recognition model in spacy for extracting relevant details.
 
-![Website](website.jpeg){:height="36px" width="36px"} ![App](app.jpeg){:height="36px" width="36px"}
+![Website](website.jpeg =250x250) ![App](app.jpeg =250x250)
 
 # Built With
 
